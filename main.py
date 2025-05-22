@@ -2,11 +2,21 @@ import numpy as np, torch, transformers
 from torch import nn
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from typing import *
 from utils.classes import *
 
 app = FastAPI()
+
+# CORS settings
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # * for devolopment
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
