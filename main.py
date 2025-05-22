@@ -108,4 +108,4 @@ def embed(e: EmbedRequest) -> EmbeddingResult:
    
     return EmbeddingResult(
         result = embeds.tolist()
-    ).model_dump_json()
+    )
